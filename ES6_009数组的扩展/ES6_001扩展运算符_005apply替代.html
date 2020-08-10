@@ -1,0 +1,40 @@
+<!--
+ * @Author: zongbao.yao
+ * @Date: 2020-08-10 13:41:43
+ * @LastEditors: zongbao.yao
+ * @LastEditTime: 2020-08-10 13:45:42
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    let data = [
+      11, 'yzb', 'man'
+    ]
+
+    // es5
+
+    function getInfo(age, name, sex) {
+      console.log(age, name, sex)
+    }
+
+    getInfo.apply(this, data);
+    // 11 "yzb" "man"
+
+    // es6
+    // 优点：直接省略去使用apply
+    getInfo(...data);
+    // 11 "yzb" "man"
+  </script>
+</body>
+
+</html>

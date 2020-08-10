@@ -1,0 +1,38 @@
+<!--
+ * @Author: zongbao.yao
+ * @Date: 2020-08-10 13:47:17
+ * @LastEditors: zongbao.yao
+ * @LastEditTime: 2020-08-10 13:49:39
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    // 找出数组中最大的值
+    let a = [6, 3, 9]
+
+    // 普通写法Math.max的传入参数格式
+    console.log(Math.max(6, 3, 9))
+    // 9
+
+    // es5
+    console.log(Math.max.apply(Array, a))
+    // 9
+
+    // es6
+    // 优点：直接省略去使用apply
+    console.log(Math.max(...a))
+    // 9
+  </script>
+</body>
+
+</html>

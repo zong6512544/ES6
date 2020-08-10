@@ -1,0 +1,35 @@
+<!--
+ * @Author: zongbao.yao
+ * @Date: 2020-06-27 21:59:34
+ * @LastEditors: zongbao.yao
+ * @LastEditTime: 2020-06-27 23:13:49
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        async function f() {
+            try {
+                await new Promise(function (resolve, reject) {
+                    throw new Error('出错了');
+                });
+            } catch (e) {}
+            return await ('hello world');
+        }
+
+        f().then(res => {
+            console.log(res)
+        })
+    </script>
+</body>
+
+</html>

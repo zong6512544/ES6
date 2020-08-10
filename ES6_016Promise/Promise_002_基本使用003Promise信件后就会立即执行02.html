@@ -1,0 +1,48 @@
+<!--
+ * @Author: zongbao.yao
+ * @Date: 2020-08-03 23:00:17
+ * @LastEditors: zongbao.yao
+ * @LastEditTime: 2020-08-03 23:16:17
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    // 宏任务
+    setTimeout(() => {
+      console.log('CCCCCCCCC')
+    }, 0)
+
+    // 主线任务
+    let promise = new Promise(function (resolve, reject) {
+      console.log('AAAAAAA');
+
+      // 宏任务
+      setTimeout(() => {
+        console.log('BBBBBBBBB')
+      }, 0)
+
+
+      resolve('DDDDDDDDDDDD');
+    })
+
+    // 微任务
+    promise.then(res => {
+      console.log(res)
+    })
+
+    // 主线
+    console.log('EEEEEEEEEEEEE')
+  </script>
+</body>
+
+</html>

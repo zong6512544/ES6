@@ -1,0 +1,37 @@
+<!--
+ * @Author: zongbao.yao
+ * @Date: 2020-06-25 23:08:19
+ * @LastEditors: zongbao.yao
+ * @LastEditTime: 2020-06-25 23:15:11
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        async function test() {
+            await Promise.resolve('正确01')
+            // try {
+            //     await Promise.reject('错误01')
+            // } catch (e) {
+            //     console.log(e)
+            // }
+            await Promise.reject('错误01')
+            await Promise.reject('正确02')
+        }
+
+        test().catch(err => {
+            console.log(err)
+        });
+    </script>
+</body>
+
+</html>

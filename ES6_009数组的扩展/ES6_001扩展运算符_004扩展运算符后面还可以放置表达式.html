@@ -1,0 +1,31 @@
+<!--
+ * @Author: zongbao.yao
+ * @Date: 2020-08-06 13:57:23
+ * @LastEditors: zongbao.yao
+ * @LastEditTime: 2020-08-06 14:05:03
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    let x = 1;
+
+    const arr = [
+      ...(x > 0 ? ['a'] : []),
+      'b'
+    ];
+
+    console.log(arr);//[a,b]
+  </script>
+</body>
+
+</html>

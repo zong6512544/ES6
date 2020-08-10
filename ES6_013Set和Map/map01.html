@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let map = new Map();
+
+        map.set('yzb', "姚宗宝");
+        console.log(map.get('yzb'));
+
+        let age = 11;
+        map.set(age, 123);
+        console.log(map.get(11), map.get(age))
+
+
+        map.set('zz', '忠哥')
+        // console.log(map)
+
+        console.log(map.entries(), map.values(), map.keys())
+
+        for (var [...item] of map) {
+            console.log(item)
+        }
+
+        let getMap = [...map.entries()];
+        console.log(getMap, getMap instanceof Array)
+
+        let map02 = new Map([
+            ['zz', '忠哥'],
+            ['xyh', '徐溢洪'],
+            ['zsd', '张申德'],
+            ['yg', '于贵'],
+            ['zy', '椰果'],
+            ['yzb', '包子']
+        ]);
+        console.log(map02)
+
+        // 过滤，最后添加的两个学生
+        map02 = [...map02].filter(([key, value], index, arr) => {
+            return index < arr.length - 2;
+        })
+        console.log(map02)
+    </script>
+
+</body>
+
+</html>

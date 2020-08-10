@@ -1,0 +1,34 @@
+<!--
+ * @Author: zongbao.yao
+ * @Date: 2020-07-07 21:28:35
+ * @LastEditors: zongbao.yao
+ * @LastEditTime: 2020-07-07 22:46:54
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let obj = {
+            a:'1',
+            b:{
+                bb:'2',
+            },
+            c:'3'
+        }
+
+        let {a,...n} = obj;
+        n.b.bb='bb';
+        console.log(obj)
+    </script>
+</body>
+
+</html>

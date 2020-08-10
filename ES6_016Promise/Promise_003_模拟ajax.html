@@ -1,0 +1,109 @@
+<!--
+ * @Author: zongbao.yao
+ * @Date: 2020-08-04 01:43:45
+ * @LastEditors: zongbao.yao
+ * @LastEditTime: 2020-08-04 02:11:27
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const $yzb = {
+      // 封装ajax（异步）
+      // 传入一个对象
+      // 该对象包含属性：
+      // 1.请求地址url
+      // 2.请求方法method
+      // 3.请求参数param、data（对象）
+      // 4.设置请求头reHeader
+      ajax(obj) {
+        // this
+        let _self = this;
+
+        // 创建XHR
+        let xhr = new XMLHttpRequest();
+
+
+        if (obj.method.toLowerCase() === 'get') {
+          // 格式化请求参数
+          obj.param = _self.formateURLParams(obj.param)
+          // 代开XHR配置(请求方法，请求地址)
+          xhr.open(obj.method, obj.url + '?' + obj.param, true);
+          // 进行传递参数（POST要通过此方式传参，GET传递null即可）
+          xhr.send(null);
+
+        } else if (obj.method.toLowerCase() === 'post') {
+          // 格式化请求参数
+          // obj.data = _self.formateURLParams(obj.data)
+          // 代开XHR配置(请求方法，请求地址)
+          xhr.open(obj.method, obj.url, true);
+          // 如果是POST请求，还要设置请求头
+          xhr.setRequestHeader("Content-Type", "application/json");
+          // 进行传递参数（POST要通过此方式传参，GET传递null即可）
+          xhr.send(obj.data);
+        };
+        // 返回promise
+        return new Promise(function (resolve, reject) {
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+              if (xhr.status >= 200 && xhr.status <= 300) {
+                resolve(xhr)
+              } else {
+                reject(new Error('你的这个报错了'))
+              }
+            }
+          }
+        })
+      },
+      formateURLParams(param) {
+        let res = Array.from(Object.entries(param)).map(function (item, index, arr) {
+          return encodeURIComponent(item[0]) + '=' + encodeURIComponent(item[1]);
+        })
+        return res.join('&');
+      }
+    }
+
+    $yzb.ajax({
+      url: 'http://jsonplaceholder.typicode.com/posts',
+      method: 'get',
+      param: {
+
+      }
+    }).then(res => {
+      res = JSON.parse(res.response)
+      console.log('get请求的数据', res)
+    })
+
+    $yzb.ajax({
+      url: 'http://jsonplaceholder.typicode.com/posts',
+      method: 'get',
+      param: {
+        userId: 1
+      }
+    }).then(res => {
+      res = JSON.parse(res.response)
+      console.log('get请求的数据+参数param', res)
+    })
+
+    $yzb.ajax({
+      url: 'https://jsonplaceholder.typicode.com/posts',
+      method: 'post',
+      data: JSON.stringify({
+        userId: 1
+      })
+    }).then(res => {
+      res = JSON.parse(res.response)
+      console.log('post请求的数据+参数data', res)
+    })
+  </script>
+</body>
+
+</html>

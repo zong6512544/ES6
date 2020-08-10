@@ -1,0 +1,35 @@
+<!--
+ * @Author: zongbao.yao
+ * @Date: 2020-08-10 14:02:12
+ * @LastEditors: zongbao.yao
+ * @LastEditTime: 2020-08-10 14:03:48
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // ES5的 写法
+    var arr1 = [0, 1, 2];
+    var arr2 = [3, 4, 5];
+    Array.prototype.push.apply(arr1, arr2);
+    console.log(arr1)
+    // [0, 1, 2, 3, 4, 5]
+
+    // ES6 的写法
+    let arr11 = [0, 1, 2];
+    let arr22 = [3, 4, 5];
+    arr11.push(...arr22);
+    console.log(arr11)
+    // [0, 1, 2, 3, 4, 5]
+  </script>
+</body>
+
+</html>

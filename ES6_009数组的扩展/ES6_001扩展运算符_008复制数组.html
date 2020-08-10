@@ -1,0 +1,39 @@
+<!--
+ * @Author: zongbao.yao
+ * @Date: 2020-08-10 14:09:24
+ * @LastEditors: zongbao.yao
+ * @LastEditTime: 2020-08-10 14:21:21
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // es5
+    let a = [1, 2, 3];
+    let b = a.concat();
+    b[0] = 11;
+    console.log(a, b)
+    // [1,2,3]
+    // [11,2,3]
+
+    // es6
+    let aa = [1, 2, 3]
+    let bb = [...aa]
+    bb[0] = 11;
+    let [...cc] = aa;
+    cc[0] = 22;
+    console.log(bb, cc)
+    // [11, 2, 3] 
+    // [22, 2, 3]
+  </script>
+</body>
+
+</html>

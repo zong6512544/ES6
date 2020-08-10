@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const obj = {
+            isCheck: true,
+            name: "obj",
+            local: {
+                access: {
+                    x: 100,
+                    y: 300
+                },
+                hashCodes:[
+                    1,2,3,4,5,6,7,8,9,0
+                ]
+            },
+            news: [
+                "阿忠", "阿苗", 520
+            ]
+        }
+
+        let {
+            isCheck: checked,
+            name:called,
+            local:locals,
+            local:{
+                access:accessed,
+                access:{
+                    x:x,
+                    y:y
+                },
+                hashCodes:[
+                    ...hashCode
+                ]
+            },
+            news:newss,
+            news:[
+                zz,ym
+            ],
+            news:[
+                ...allNews
+            ]
+        } = obj;
+
+        console.log(checked)
+        console.log(called)
+        console.log(locals)
+        console.log(accessed)
+        console.log(x,y)
+        console.log(hashCode)
+        console.log(newss)
+        console.log(zz,ym);
+        console.log(allNews)
+    </script>
+</body>
+
+</html>

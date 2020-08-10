@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // strArr参数:
+        // 获取的是模板字符串参数中，所有被${}占位符分割的字符串，并存放在strArr数组
+
+        // 除了第一个strArr参数，
+        // 后面的参数都是${}占位符内容，并按顺序将其当作参数传入函数。
+        function fn(strArr) {
+            console.log(strArr);
+            console.log(name+age+work);
+            console.log(arguments[1]+arguments[2])
+        }
+
+        var name = '包子';
+        var age = 21;
+        var work = 'IT developer'
+
+        // 调用函数
+        fn `你好，我的名字叫${name},年龄${age},${work}`;
+    </script>
+</body>
+
+</html>

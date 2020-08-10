@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function father(){
+            son("baba","canshu");
+        }
+
+        function grandPa(){
+            son("yeye","canshu");
+        }
+        
+
+        function son(){
+            // console.log(arguments[0],arguments[1]);
+
+            // console.log(arguments.callee);
+
+            console.log(son.caller);
+        }
+
+        father();
+        grandPa();
+    </script>
+</body>
+
+</html>

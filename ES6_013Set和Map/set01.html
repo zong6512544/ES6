@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 创建set：
+        var set01 = new Set();
+
+        var set02 = new Set("你好啊啊啊啊啊123123");
+        console.log(set02)
+
+        var set03 = new Set([1, 4, 7, 9, 0, 1, 2, 3, 4]);
+        console.log(set03)
+        set03.add('bao');
+        console.log(set03)
+
+        console.log(set03.keys());
+        console.log(set03.values());
+        console.log(set03.entries());
+
+        [...set04] = new Set([1, 4, 7, 9, 0, 1, 2, 3, 4]);
+
+
+
+        // set特点：
+        // 存入的数据有序且唯一
+
+        // 常用方法
+        // add
+        // delete
+        // clear
+        // has
+        // size
+        // 其construct构造方法
+
+
+
+        // let me = {
+        //     name: 'yzb',
+        //     age: 12,
+        //     show() {
+        //         let that = this;
+        //         console.log(that.name, that.age)
+        //     }
+        // }
+
+        // console.log(Object.keys(me))
+        // console.log(Object.entries(me))
+
+        // me.show();
+
+        // for(let item of set03){
+        //     console.log(item)
+        // }
+
+        console.log(typeof set04);
+
+        [...set05] = new Set('yzb520');
+        console.log(set05)
+        console.log(typeof set05)
+        set05 = set05.join('');
+        console.log(set05 instanceof Array);
+        
+        set05 = set05.split('');
+
+        console.log(set05)
+
+        console.log(set05 instanceof Array)
+
+        // set05 = Array.from(set05);
+        // console.log(set05)
+        
+
+    </script>
+</body>
+
+</html>

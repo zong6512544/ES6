@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // function test(required, params) {
+        //     // 设置默认值
+
+        //     // 请求方式
+        //     required = required || 'get';
+        //     // 设置参数
+        //     params = params || null;
+
+        //     console.log(required, params);
+        // }
+
+        // // 理想的效果
+        // test(); // post null
+        // test('post', 1); //post 1
+
+        // // 不理想的效果
+        // test('get', 0); //get null
+
+
+
+
+        // function test(required, params) {
+        //     // 设置默认值
+
+        //     // 请求方式
+        //     if (typeof required === 'undefined') {
+        //         required = 'get';
+        //     }
+        //     // 设置参数
+        //     if (typeof params === 'undefined') {
+        //         params = null;
+        //     }
+
+        //     console.log(required, params);
+        // }
+
+        // test(); // get null
+        // test('post', 1); //post 1
+
+        // // 不理想的效果
+        // test('get', 0); //get 0
+        // test('get', ''); //get ''
+
+
+
+
+        // function test(required, params) {
+        //     // 设置默认值
+
+        //     // 请求方式
+        //     if (typeof required === 'undefined') {
+        //         required = 'get';
+        //     }
+        //     // 设置参数
+        //     if (typeof params === 'undefined') {
+        //         params = null;
+        //     }
+
+        //     console.log(required, params);
+        // }
+
+        // test(); // get null
+        // test('post', 1); //post 1
+
+        // // 不理想的效果
+        // test('get', 0); //get 0
+        // test('get', ''); //get ''
+
+        function test(required = "get", params) {
+            console.log("*****************************")
+
+            console.log(arguments)
+            console.log(required, params);
+            required = "post";
+            params = "666";
+
+            console.log(arguments)
+            console.log(required, params);
+        }
+
+        test();          // get null
+        test('post', 1); //post 1
+
+        // 不理想的效果
+        test('get', 0);  //get 0
+        test('get', ''); //get ''
+
+    </script>
+</body>
+
+</html>

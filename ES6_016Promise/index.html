@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // function ifString() {
+
+        //     let prms = new Promise(function (resovle, reject) {
+
+        //         resovle();
+
+        //         reject();
+
+        //     });
+
+        // }
+
+        const $yzb = {
+            // 封装ajax（异步）
+            // 传入一个对象
+            // 该对象包含属性：
+            // 1.请求地址url
+            // 2.请求方法method
+            // 3.请求参数param（对象）
+            // 4.设置请求头reHeader
+            // 5.回调函数success
+            ajax(obj) {
+                // this
+                let _self = this;
+
+                // 创建xhr
+                let xhr = new XMLHttpRequest();
+
+                // 开启open
+                // -get
+                // -post
+
+                obj.param = _self.formateURLParams(obj.param);
+
+                if (obj.method.toLowerCase() === 'get') {
+
+                    xhr.open(obj.method, obj.url + '?' + obj.param, true);
+                    xhr.send(null);
+
+                } else if (obj.method.toLowerCase() === 'post') {
+                    xhr.open(obj.method, obj.url, true);
+                    xhr.setRequestHeader("Content-Type", "application/json");
+                    xhr.send(obj.param);
+                };
+
+                // xhr.onreadystatechange = function () {
+                //     if (xhr.readyState == 4) {
+                //         if (xhr.status >= 200 && xhr.status < 300) {
+                //             obj.success(xhr.responseText);
+                //         }
+                //     }
+                // }
+
+                return new Promise(function (resolve, reject) {
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState == 4) {
+                            if (xhr.status >= 200 && xhr.status <= 300) {
+                                resolve(xhr)
+                            } else {
+                                reject(new Error('你的这个报错了'))
+                            }
+                        }
+                    }
+                })
+            },
+            formateURLParams(param) {
+                let res = Array.from(Object.entries(param)).map(function (item,index,arr) {
+                    return encodeURIComponent(item[0])+'='+encodeURIComponent(item[1]);
+                })
+                return res.join('&');
+            }
+        }
+
+        $yzb.ajax({
+            method: 'post',
+            param: {
+                name: 'yzb',
+                age: 21
+            },
+            url: 'index.json',
+            reHeader: ''
+            // success: function (res) {
+            //     console.log(res)
+            // }
+        }).then((res) => {
+            console.log(res)
+        })
+    </script>
+</body>
+
+</html>

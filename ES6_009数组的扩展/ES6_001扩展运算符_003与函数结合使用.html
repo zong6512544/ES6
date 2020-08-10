@@ -1,0 +1,30 @@
+<!--
+ * @Author: zongbao.yao
+ * @Date: 2020-08-06 13:57:23
+ * @LastEditors: zongbao.yao
+ * @LastEditTime: 2020-08-06 13:59:28
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    const args = [0, 1];
+    
+    function f(v, w, x, y, z) {
+      console.log(v, w, x, y, z)
+    }
+    
+    f(-1, ...args, 2, ...[3]);//-1,0,1,2,3
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // case01:
+        const person = function (name, age) {
+            var info = {
+                name,
+                age,
+                methods() {
+                    console.log('姓名：'+this.name + '，年龄：' + this.age)
+                }
+            }
+            return info;
+        }
+
+        let yzb = person('包子', 21);
+        yzb.methods();
+
+        // case02:
+
+        var info = {
+            methods() {
+                console.log('姓名：'+this.name + '，龄：' + this.age)
+            }
+        }
+
+        info.name = 'baozi';
+        info.age = 22;
+        info.methods();
+    </script>
+</body>
+
+</html>

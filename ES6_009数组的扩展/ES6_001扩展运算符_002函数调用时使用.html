@@ -1,0 +1,41 @@
+<!--
+ * @Author: zongbao.yao
+ * @Date: 2020-08-06 08:51:25
+ * @LastEditors: zongbao.yao
+ * @LastEditTime: 2020-08-06 13:52:37
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // case01:
+    const numbers = [4, 38];
+
+    function add(x, y) {
+      // x:4 y:38
+      return x + y;
+    }
+
+    add(...numbers) // 42
+
+    // case02:
+    const a = [11, 22]
+    const b = [1, 2]
+
+    function toPush(a, b) {
+      a.push(...b)
+    }
+
+    toPush(a, b)
+  </script>
+</body>
+
+</html>

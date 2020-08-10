@@ -1,0 +1,42 @@
+<!--
+ * @Author: zongbao.yao
+ * @Date: 2020-08-03 22:51:12
+ * @LastEditors: zongbao.yao
+ * @LastEditTime: 2020-08-03 22:51:55
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 下面代码创造了一个Promise实例。
+    const promise = new Promise(function (resolve, reject) {
+      let rand = 0;
+      // 异步操作
+      setTimeout(() => {
+        rand = Math.random() * 100 + 1;
+        // 异步处理结果
+        if (rand !== 0) {
+          resolve(rand)
+        } else {
+          reject(Error('not any thing'))
+        }
+      }, 1000)
+    })
+
+    promise.then(function (res) {
+      console.log(res)
+    }, function (err) {
+      console.log(err)
+    })
+  </script>
+</body>
+
+</html>
