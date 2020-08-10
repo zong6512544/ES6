@@ -1,0 +1,36 @@
+<!--
+ * @Author: zongbao.yao
+ * @Date: 2020-08-11 01:36:18
+ * @LastEditors: zongbao.yao
+ * @LastEditTime: 2020-08-11 01:45:57
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+
+    let str = 'i love u';
+
+    // es5
+    let es5 = str.split('');
+    console.log(es5);
+    // ["i", " ", "l", "o", "v", "e", " ", "u"]
+
+    // es6
+    let es6 = [...str];
+    console.log(es6);
+    // ["i", " ", "l", "o", "v", "e", " ", "u"]
+
+  </script>
+</body>
+
+</html>

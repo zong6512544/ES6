@@ -1,0 +1,34 @@
+<!--
+ * @Author: zongbao.yao
+ * @Date: 2020-08-11 01:22:47
+ * @LastEditors: zongbao.yao
+ * @LastEditTime: 2020-08-11 01:28:08
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let a = [1, 2];
+    let b = [3];
+    let c = [4, 5, 6]
+
+
+    // es5
+    let es5 = a.concat(b, c)
+    console.log(es5)
+
+    // es6
+    let es6 = [...a, ...b, ...c];
+    console.log(es6)
+  </script>
+</body>
+
+</html>
