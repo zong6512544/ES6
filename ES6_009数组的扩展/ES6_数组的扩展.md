@@ -2,7 +2,8 @@
 
 ## $\color{purple}{数组的扩展：}$
 
-本章学习内容
+
+
 
 - 扩展运算符
   - 含义
@@ -412,7 +413,112 @@ demo:
 
 ### **$\color{orange}{2.2.运用}$**
 
-实际应用中，常见的类似数组的对象是 DOM 操作返回的 NodeList 集合，以及函数内部的arguments对象。
+**实际应用中，常见的类似：**
+
+- 数组的对象是 DOM 操作返回的 NodeList 集合
+- 以及函数内部的arguments对象。
+
 Array.from都可以将它们转为真正的数组。
 
-#### 2.2.1.
+demo：nodeList
+
+```html
+<body>
+  <div class="father">
+    <span>1</span>
+    <span>2</span>
+    <h3>3</h3>
+  </div>
+  <script>
+    let father = document.getElementsByClassName('father')[0];
+    console.log(father.childNodes)
+    console.log(Array.from(father.childNodes))
+  </script>
+</body>
+```
+
+demo:arguments
+
+```javascript
+  function getInfo(name, age) {
+    console.log(arguments)
+    console.log(Array.from(arguments))
+  }
+  getInfo('yzb',22)
+  // ['yzb',22]
+```
+
+#### 2.2.1.Iterator 接口的数据结构
+
+只要是部署了 Iterator 接口的数据结构，Array.from都能将其转为数组。
+
+- 字符串
+- set
+
+demo:字符串
+
+```javascript
+  let yzb = 'yzb love u'
+  console.log(Array.from(yzb))
+  // ["y", "z", "b", " ", "l", "o", "v", "e", " ", "u"]
+```
+
+demo:set
+
+```javascript
+  let set = new Set([1,2,3])
+  console.log(Array.from(set))
+  // [1,2,3]
+```
+
+**如果参数是一个真正的数组，Array.from会返回一个一模一样的新数组。**
+
+demo:
+
+```javascript
+  Array.from([1, 2, 3])
+  // [1, 2, 3]
+```
+
+#### 2.2.2.Array.from方法还支持类似数组的对象
+
+扩展运算符背后调用的是遍历器接口（Symbol.iterator），如果一个对象没有部署这个接口，就无法转换。
+
+**所谓类似数组的对象：**
+
+- 本质特征只有一点，即必须有length属性。
+- 因此，任何有length属性的对象，都可以通过Array.from方法转为数组
+- 而此时扩展运算符就无法转换。
+
+demo:
+
+```javascript
+  Array.from({ length: 3 });
+  // [ undefined, undefined, undefined ]
+```
+
+上面代码中，Array.from返回了一个具有三个成员的数组，每个位置的值都是undefined。
+扩展运算符转换不了这个对象。
+
+**对于还没有部署该方法的浏览器，可以用Array.prototype.slice方法替代。**
+
+```javascript
+  const toArray = (() =>
+    Array.from ? Array.from : obj => [].slice.call(obj)
+  )();
+```
+
+#### 2.2.3.Array.from还可以接受第二个参数
+
+**作用类似于数组的map方法，用来对每个元素进行处理，将处理后的值放入返回的数组。**
+
+```javascript
+  let arr = [1, 2, 3]
+
+  // Array.from()参数二
+  console.log(Array.from(arr, x => x * x))
+  // 等同于map
+  console.log(Array.from(arr).map(x => x * x))
+
+  // [1,4,9]
+```

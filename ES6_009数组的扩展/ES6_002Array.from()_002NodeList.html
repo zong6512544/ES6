@@ -1,0 +1,27 @@
+<!--
+ * @Author: zongbao.yao
+ * @Date: 2020-09-01 08:28:21
+ * @LastEditors: zongbao.yao
+ * @LastEditTime: 2020-09-01 08:30:59
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="father">
+    <span>1</span>
+    <span>2</span>
+    <h3>3</h3>
+  </div>
+  <script>
+    let father = document.getElementsByClassName('father')[0];
+    console.log(father.childNodes)
+    console.log(Array.from(father.childNodes))
+  </script>
+</body>
+</html>
